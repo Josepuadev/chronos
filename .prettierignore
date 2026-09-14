@@ -1,0 +1,11 @@
+# Dependencias instaladas por npm
+node_modules
+
+# Código generado durante el build
+dist
+
+# Archivos de cobertura de tests
+coverage
+
+# Archivos generados por herramientas
+*.lock

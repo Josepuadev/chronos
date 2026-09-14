@@ -1,8 +1,4 @@
-
-
-
 function App() {
-
   return (
     <main>
       <h1>Chronos</h1>
@@ -11,4 +7,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

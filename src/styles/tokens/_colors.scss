@@ -1,0 +1,28 @@
+// Colores base de Chronos
+
+/*
+ No utilizaremos valores directamente desde los componentes
+ Los componentes consumirán varibales CSS como: 
+ var(--color-background)
+
+ Esto nos permitirá cambiar el tema completo desde un único lugar.
+
+*/
+
+:root {
+    --color-background: #0b0d10; // Background principal de la app
+    --color-surface: #12161b; // Superficie para cards y paneles
+    --color-surface-elevated: #181e25; // Superficie ligeramente más elevada
+    --color-border: #29313a;// Bordes y separadores.
+    --color-text-primary: #f2f4f5; // Texto principal.
+    --color-text-secondary: #a8b0b8; // Texto secundario.
+    --color-text-muted: #737d87; // Texto con menor relevancia visual.
+    --color-primary: #c9a66b; // Color principal de interacción.
+    --color-primary-hover: #d8b982; // Variante para hovers o estados seleccionados
+
+    // estados semánticos
+    --color-success: #5dbb8a;
+    --color-warning: #d6a85c;
+    --color-error: #d96c6c;
+
+}

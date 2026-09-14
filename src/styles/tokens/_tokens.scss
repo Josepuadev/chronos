@@ -1,0 +1,22 @@
+// Tokens que no pertenecen especificamente color, espaciado o tipografía
+
+:root {
+    // Radios de los componentes.
+    --radius-sm: 0.375rem;
+    --radius-md: 0.625rem;
+    --radius-lg: 1rem;
+    --radius-full: 9999px;
+
+    // Sombras.
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 20%);
+    --shadow-md: 0 8px 24px rgb(0 0 0 / 25%);
+    --shadow-lg: 0 16px 48px rgb(0 0 0 / 30%);
+
+    // Transiciones.
+    --transition-fast: 120ms ease;
+    --transition-normal: 200ms ease;
+    --transition-slow: 300ms ease;
+
+    // Contenedor principal de la aplicación.
+    --container-max-width: 1440px;
+}
