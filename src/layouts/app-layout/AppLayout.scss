@@ -1,0 +1,217 @@
+// Estilos del layout principal de Chronos.
+//
+// El layout utiliza CSS Grid porque tenemos dos dimensiones
+// claras y estables:
+//
+// 1. Una cabecera horizontal.
+// 2. Una zona inferior con sidebar + contenido.
+//
+// Grid nos permite expresar esta relación de forma sencilla
+// y mantenerla fácilmente cuando añadamos responsive design.
+
+.app-layout {
+	// Ocupa como mínimo toda la altura de la ventana.
+	min-height: 100vh;
+
+	// Utilizamos Grid para separar header y body.
+	display: grid;
+
+	// Primera fila: header.
+	// Segunda fila: contenido de la aplicación.
+	grid-template-rows: auto 1fr;
+
+	// Fondo general de Chronos.
+	background: var(--color-background);
+}
+
+// ---------------------------------------------------------
+// HEADER
+// ---------------------------------------------------------
+
+.app-layout__header {
+	// El header utiliza Flexbox porque necesitamos
+	// distribuir marca y acciones horizontalmente.
+	display: flex;
+
+	// Separa la marca de las acciones.
+	justify-content: space-between;
+
+	// Centra verticalmente los elementos.
+	align-items: center;
+
+	// Espaciado interno.
+	padding: var(--spacing-md) var(--spacing-xl);
+
+	// Línea visual que separa header del contenido.
+	border-bottom: 1px solid var(--color-border);
+
+	// Mantiene el header por encima del contenido.
+	background: var(--color-background);
+}
+
+.app-layout__brand {
+	// Evitamos decoración por defecto del enlace.
+	text-decoration: none;
+
+	// Utilizamos el color principal de la identidad.
+	color: var(--color-text-primary);
+
+	// Marca ligeramente más destacada.
+	font-size: var(--font-size-lg);
+	font-weight: var(--font-weight-bold);
+
+	// Aumentamos ligeramente el espaciado entre letras.
+	letter-spacing: 0.08em;
+}
+
+.app-layout__header-actions {
+	// Agrupamos las acciones del header.
+	display: flex;
+
+	// Separamos los botones.
+	gap: var(--spacing-sm);
+}
+
+.app-layout__header-actions button {
+	// Eliminamos el estilo visual por defecto.
+	border: 0;
+
+	// Fondo transparente para integrarlo en el header.
+	background: transparent;
+
+	// Color secundario para acciones menos importantes.
+	color: var(--color-text-secondary);
+
+	// Añadimos espacio para facilitar interacción.
+	padding: var(--spacing-xs) var(--spacing-sm);
+
+	// Transición suave para estados interactivos.
+	transition:
+		color var(--transition-fast),
+		background var(--transition-fast);
+
+	// Radio coherente con nuestros tokens.
+	border-radius: var(--radius-sm);
+}
+
+.app-layout__header-actions button:hover {
+	// Destacamos la acción cuando el usuario pasa el cursor.
+	color: var(--color-text-primary);
+
+	// Añadimos una superficie sutil.
+	background: var(--color-surface);
+}
+
+// ---------------------------------------------------------
+// BODY
+// ---------------------------------------------------------
+
+.app-layout__body {
+	// La zona inferior utiliza Grid para crear
+	// sidebar + contenido principal.
+	display: grid;
+
+	// Sidebar de ancho fijo + contenido flexible.
+	grid-template-columns: 240px minmax(0, 1fr);
+
+	// Permitimos que esta zona ocupe todo el espacio disponible.
+	min-height: 0;
+}
+
+.app-layout__sidebar {
+	// Separador visual entre sidebar y contenido.
+	border-right: 1px solid var(--color-border);
+
+	// Fondo ligeramente diferente al fondo principal.
+	background: var(--color-surface);
+
+	// Espaciado interno.
+	padding: var(--spacing-lg);
+}
+
+.app-layout__navigation {
+	// Eliminamos los estilos por defecto de la lista.
+	display: flex;
+	flex-direction: column;
+
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+
+	// Separación entre elementos.
+	gap: var(--spacing-2xs);
+}
+
+.app-layout__navigation li {
+	// Espaciado de cada elemento.
+	padding: var(--spacing-sm);
+
+	// Color secundario porque ninguno está activo todavía.
+	color: var(--color-text-secondary);
+
+	// Radio consistente.
+	border-radius: var(--radius-sm);
+
+	// Preparamos una transición para cuando
+	// posteriormente sean elementos interactivos.
+	transition:
+		color var(--transition-fast),
+		background var(--transition-fast);
+}
+
+.app-layout__navigation li:hover {
+	// Feedback visual temporal.
+	color: var(--color-text-primary);
+
+	background: var(--color-surface-elevated);
+}
+
+// ---------------------------------------------------------
+// CONTENT
+// ---------------------------------------------------------
+
+.app-layout__content {
+	// Permitimos que el contenido pueda reducirse
+	// correctamente dentro del grid.
+	min-width: 0;
+
+	// Espaciado general del contenido.
+	padding: var(--spacing-2xl);
+
+	// Evitamos que contenido muy grande
+	// provoque overflow horizontal.
+	overflow-x: hidden;
+}
+
+// ---------------------------------------------------------
+// RESPONSIVE
+// ---------------------------------------------------------
+
+// En pantallas pequeñas eliminamos temporalmente
+// la sidebar lateral.
+//
+// Más adelante construiremos una navegación móvil
+// más completa y accesible
+
+@media (max-width: 768px) {
+	.app-layout__body {
+		// Una sola columna para móvil.
+		grid-template-columns: 1fr;
+	}
+
+	.app-layout__sidebar {
+		// Ocultamos la sidebar desktop.
+		display: none;
+	}
+
+	.app-layout__header {
+		// Reducimos el padding horizontal.
+		padding-inline: var(--spacing-md);
+	}
+
+	.app-layout__content {
+		// Reducimos el espacio de contenido.
+		padding: var(--spacing-lg);
+	}
+}
