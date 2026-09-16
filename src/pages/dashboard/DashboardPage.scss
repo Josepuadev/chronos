@@ -1,0 +1,90 @@
+// Estilos específicos del Dashboard.
+//
+// Estos estilos pertenecen exclusivamente a esta página.
+// Los estilos compartidos deben vivir en los componentes
+// reutilizables o en nuestros tokens globales.
+
+.dashboard-page {
+	// Limitamos la anchura para mantener una lectura cómoda.
+	max-width: var(--container-max-width);
+
+	// Centramos el contenido cuando la pantalla es muy grande.
+	margin: 0 auto;
+}
+
+// ---------------------------------------------------------
+// HERO
+// ---------------------------------------------------------
+
+.dashboard-page__hero {
+	// Limitamos la anchura del bloque introductorio
+	// para evitar líneas de texto demasiado largas.
+	max-width: 760px;
+
+	// Separación respecto al contenido inferior.
+	margin-bottom: var(--spacing-3xl);
+}
+
+.dashboard-page__eyebrow {
+	// Utilizamos el color principal para reforzar
+	// la identidad visual de Chronos.
+	margin: 0 0 var(--spacing-md);
+
+	color: var(--color-primary);
+
+	// Tamaño pequeño para crear jerarquía.
+	font-size: var(--font-size-sm);
+
+	// Destacamos la marca.
+	font-weight: var(--font-weight-semibold);
+
+	// Tratamiento visual típico de un eyebrow.
+	letter-spacing: 0.12em;
+}
+
+.dashboard-page h1 {
+	// Eliminamos el margen superior por defecto.
+	margin: 0;
+
+	// Utilizamos nuestro sistema tipográfico.
+	font-size: clamp(var(--font-size-3xl), 6vw, var(--font-size-4xl));
+
+	// Reducimos la altura de línea para títulos grandes.
+	line-height: var(--line-height-tight);
+
+	// El título es uno de los elementos visuales
+	// más importantes de la pantalla.
+	font-weight: var(--font-weight-semibold);
+}
+
+.dashboard-page__description {
+	// Separación respecto al título.
+	margin: var(--spacing-lg) 0 0;
+
+	// Texto secundario.
+	color: var(--color-text-secondary);
+
+	// Aumentamos ligeramente el tamaño para facilitar lectura.
+	font-size: var(--font-size-lg);
+
+	// Mejoramos la lectura de varias líneas.
+	line-height: var(--line-height-relaxed);
+}
+
+// ---------------------------------------------------------
+// CONTENT
+// ---------------------------------------------------------
+
+.dashboard-page__content {
+	// Utilizamos una superficie de nuestro sistema de diseño.
+	padding: var(--spacing-xl);
+
+	// Fondo ligeramente elevado.
+	background: var(--color-surface);
+
+	// Borde coherente con el resto de la aplicación.
+	border: 1px solid var(--color-border);
+
+	// Radio reutilizable.
+	border-radius: var(--radius-lg);
+}

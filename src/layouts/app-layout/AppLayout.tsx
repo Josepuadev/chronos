@@ -17,11 +17,11 @@ function AppLayout({ children }: AppLayoutProps) {
 
 				<div className="app-layout__header-actions">
 					{/* Buscador global.
-              Por ahora es únicamente visual. */}
+              		Por ahora es únicamente visual. */}
 					<button type="button">Search</button>
 
 					{/* Acceso temporal al perfil.
-              La funcionalidad llegará posteriormente. */}
+              		La funcionalidad llegará posteriormente. */}
 					<button type="button" aria-label="Open profile">
 						👤
 					</button>

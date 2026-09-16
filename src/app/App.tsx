@@ -1,18 +1,23 @@
-import AppLayout from '../layouts/app-layout/AppLayout';
+// Componente raíz de Chronos.
+//
+// App se encarga de ensamblar las piezas principales
+// de nuestra aplicación.
+//
+// Actualmente solo tenemos una página.
+// React Router se encargará posteriormente de seleccionar
+// la página correspondiente según la URL.
 
+import AppLayout from '../layouts/app-layout/AppLayout';
+import DashboardPage from '../pages/dashboard/DashboardPage';
+
+// Componente raíz de la aplicación.
 function App() {
 	return (
-		<main>
-			{/* Contenedor principal de nuestra primera pantalla. */}
-			<AppLayout>
-				<section>
-					<p>CHRONOS</p>
-
-					<h1>Explora la historia a tráves del tiempo</h1>
-					<p>Desubre eventos, personas y civilizaciones a través de un historia interactiva</p>
-				</section>
-			</AppLayout>
-		</main>
+		// El layout proporciona la estructura visual común.
+		<AppLayout>
+			{/* La página concreta se introduce como children. */}
+			<DashboardPage />
+		</AppLayout>
 	);
 }
 

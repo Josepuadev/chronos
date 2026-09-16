@@ -176,11 +176,7 @@
 	// correctamente dentro del grid.
 	min-width: 0;
 
-	// Espaciado general del contenido.
 	padding: var(--spacing-2xl);
-
-	// Evitamos que contenido muy grande
-	// provoque overflow horizontal.
 	overflow-x: hidden;
 }
 
