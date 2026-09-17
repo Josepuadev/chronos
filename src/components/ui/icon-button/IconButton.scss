@@ -1,0 +1,49 @@
+// Estilos del botón de icono.
+
+.icon-button {
+	// Dimensiones suficientemente grandes para facilitar
+	// la interacción táctil.
+	width: 2.5rem;
+	height: 2.5rem;
+
+	// Centramos el icono.
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	// Eliminamos estilos nativos.
+	padding: 0;
+	border: 0;
+
+	// Forma ligeramente redondeada.
+	border-radius: var(--radius-sm);
+
+	// Fondo transparente inicialmente.
+	background: transparent;
+
+	// Color del icono.
+	color: var(--color-text-secondary);
+
+	// Feedback visual.
+	transition:
+		background var(--transition-fast),
+		color var(--transition-fast);
+}
+
+// Hover.
+.icon-button:hover:not(:disabled) {
+	background: var(--color-surface-elevated);
+	color: var(--color-text-primary);
+}
+
+// Foco accesible para navegación mediante teclado.
+.icon-button:focus-visible {
+	outline: 2px solid var(--color-primary);
+	outline-offset: 2px;
+}
+
+// Estado deshabilitado.
+.icon-button:disabled {
+	cursor: not-allowed;
+	opacity: 0.5;
+}

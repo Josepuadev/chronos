@@ -1,23 +1,18 @@
 // Componente raíz de Chronos.
 //
-// App se encarga de ensamblar las piezas principales
-// de nuestra aplicación.
-//
-// Actualmente solo tenemos una página.
-// React Router se encargará posteriormente de seleccionar
-// la página correspondiente según la URL.
+// App conecta la aplicación React con nuestro router.
+// La definición concreta de las rutas vive en router.tsx.
 
-import AppLayout from '../layouts/app-layout/AppLayout';
-import DashboardPage from '../pages/dashboard/DashboardPage';
+import { RouterProvider } from 'react-router';
+
+import router from './router';
 
 // Componente raíz de la aplicación.
 function App() {
 	return (
-		// El layout proporciona la estructura visual común.
-		<AppLayout>
-			{/* La página concreta se introduce como children. */}
-			<DashboardPage />
-		</AppLayout>
+		// RouterProvider proporciona el contexto de navegación
+		// a todos los componentes de la aplicación.
+		<RouterProvider router={router} />
 	);
 }
 

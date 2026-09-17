@@ -1,34 +1,53 @@
 // Página principal de Chronos.
 //
-// Una "page" representa una pantalla completa de la aplicación.
-// En esta fase todavía no tiene lógica de negocio.
-//
-// Más adelante esta página podrá componerse de componentes
-// específicos como TimelinePreview, RecentEvents, etc.
+// Esta página empieza a utilizar componentes del Design System
+// en lugar de definir estilos y comportamientos desde cero.
+
+import Button from '../../components/ui/button/Button';
+import Card from '../../components/ui/card/Card';
+import IconButton from '../../components/ui/icon-button/IconButton';
 
 import './DashboardPage.scss';
 
 // Página principal de Chronos.
 function DashboardPage() {
 	return (
-		// Contenedor semántico de la página.
 		<section className="dashboard-page">
-			{/* Introducción principal de la aplicación. */}
+			{/* Hero principal de la aplicación. */}
 			<header className="dashboard-page__hero">
-				{/* Título principal de la pantalla. */}
 				<p className="dashboard-page__eyebrow">CHRONOS</p>
 
-				<h1>EXPLORA LA HISTORIA A TRAVÉS DEL TIEMPO.</h1>
+				<h1>Explore history through time.</h1>
 
-				{/* Descripción del producto. */}
 				<p className="dashboard-page__description">
-					Descubre, personas, eventos, civilaziones y mucho más...
+					Discover events, people and civilizations through an interactive historical experience.
 				</p>
+
+				{/* Ejemplo de utilización del Button reutilizable. */}
+				<Button>Explore timeline</Button>
 			</header>
 
-			{/* Zona reservada para el contenido del dashboard. */}
+			{/* Contenido provisional del dashboard. */}
 			<div className="dashboard-page__content">
-				<p>Historical exploration starts here.</p>
+				{/* Primera Card reutilizable. */}
+				<Card>
+					<h2>Historical timeline</h2>
+
+					<p>
+						Explore events across centuries and discover how historical moments connect with each
+						other.
+					</p>
+				</Card>
+
+				{/* Segunda Card reutilizable. */}
+				<Card>
+					<h2>Discover civilizations</h2>
+
+					<p>Explore civilizations, their territories, important figures and historical periods.</p>
+				</Card>
+
+				{/* Ejemplo del IconButton. */}
+				<IconButton type="button" aria-label="Open dashboard options" icon="⋮" />
 			</div>
 		</section>
 	);

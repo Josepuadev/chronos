@@ -1,0 +1,31 @@
+// Estilos base de las superficies Card de Chronos.
+
+.card {
+	// Superficie visual.
+	background: var(--color-surface);
+
+	// Separación visual.
+	border: 1px solid var(--color-border);
+
+	// Esquinas redondeadas.
+	border-radius: var(--radius-lg);
+
+	// Espaciado interno.
+	padding: var(--spacing-lg);
+
+	// Preparamos una transición para futuras interacciones.
+	transition:
+		border-color var(--transition-normal),
+		background var(--transition-normal);
+}
+
+// Una card interactiva podrá reutilizar esta clase
+// posteriormente sin obligar a todas las cards a ser enlaces.
+.card--interactive {
+	cursor: pointer;
+}
+
+.card--interactive:hover {
+	border-color: var(--color-primary);
+	background: var(--color-surface-elevated);
+}

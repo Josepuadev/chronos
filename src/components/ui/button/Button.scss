@@ -1,0 +1,96 @@
+// Estilos compartidos por todas las variantes del Button.
+
+.button {
+	// Utilizamos Flexbox para centrar correctamente
+	// texto e iconos cuando los añadamos.
+	display: inline-flex;
+
+	align-items: center;
+	justify-content: center;
+
+	// Espaciado interno.
+	gap: var(--spacing-xs);
+
+	padding: var(--spacing-xs) var(--spacing-md);
+
+	margin: var(--spacing-md) 0 0 0;
+
+	// Eliminamos el borde nativo.
+	border: 1px solid transparent;
+
+	// Radio del sistema de diseño.
+	border-radius: var(--radius-sm);
+
+	// Tipografía coherente con Chronos.
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-medium);
+
+	// Transiciones cortas para feedback inmediato.
+	transition:
+		background var(--transition-fast),
+		border-color var(--transition-fast),
+		color var(--transition-fast),
+		transform var(--transition-fast);
+}
+
+// Feedback al pulsar.
+.button:active {
+	transform: translateY(1px);
+}
+
+// Estado de foco.
+//
+// :focus-visible es preferible a :focus porque muestra
+// el indicador principalmente cuando el usuario navega
+// mediante teclado.
+.button:focus-visible {
+	outline: 2px solid var(--color-primary);
+	outline-offset: 2px;
+}
+
+// Estado deshabilitado.
+.button:disabled {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+
+// ---------------------------------------------------------
+// PRIMARY
+// ---------------------------------------------------------
+
+.button--primary {
+	background: var(--color-primary);
+	color: var(--color-background);
+}
+
+.button--primary:hover:not(:disabled) {
+	background: var(--color-primary-hover);
+}
+
+// ---------------------------------------------------------
+// SECONDARY
+// ---------------------------------------------------------
+
+.button--secondary {
+	border-color: var(--color-border);
+	background: var(--color-surface-elevated);
+	color: var(--color-text-primary);
+}
+
+.button--secondary:hover:not(:disabled) {
+	border-color: var(--color-primary);
+}
+
+// ---------------------------------------------------------
+// GHOST
+// ---------------------------------------------------------
+
+.button--ghost {
+	background: transparent;
+	color: var(--color-text-secondary);
+}
+
+.button--ghost:hover:not(:disabled) {
+	background: var(--color-surface);
+	color: var(--color-text-primary);
+}

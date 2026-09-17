@@ -72,6 +72,32 @@
 	gap: var(--spacing-sm);
 }
 
+// El enlace Search mantiene la apariencia
+// de una acción del header.
+.app-layout__header-actions a {
+	// Eliminamos la decoración nativa.
+	text-decoration: none;
+
+	// Espaciado de interacción.
+	padding: var(--spacing-xs) var(--spacing-sm);
+
+	// Color secundario.
+	color: var(--color-text-secondary);
+
+	// Radio coherente.
+	border-radius: var(--radius-sm);
+
+	// Transición.
+	transition:
+		color var(--transition-fast),
+		background var(--transition-fast);
+}
+
+.app-layout__header-actions a:hover {
+	color: var(--color-text-primary);
+	background: var(--color-surface);
+}
+
 .app-layout__header-actions button {
 	// Eliminamos el estilo visual por defecto.
 	border: 0;
@@ -144,20 +170,27 @@
 }
 
 .app-layout__navigation li {
-	// Espaciado de cada elemento.
+	margin: 0;
+}
+
+.app-layout__navigation a {
+	display: block;
 	padding: var(--spacing-sm);
-
-	// Color secundario porque ninguno está activo todavía.
-	color: var(--color-text-secondary);
-
-	// Radio consistente.
+	text-decoration: none;
 	border-radius: var(--radius-sm);
 
-	// Preparamos una transición para cuando
-	// posteriormente sean elementos interactivos.
-	transition:
-		color var(--transition-fast),
-		background var(--transition-fast);
+	transition: color var(--transition-fast) background var(--transition-fast);
+}
+
+// Estado hover.
+.app-layout__navigation a:hover {
+	color: var(--color-text-primary);
+	background: var(--color-surface-elevated);
+}
+
+.app-layout__navigation a.active {
+	color: var(--color-primary);
+	background: var(--color-surface-elevated);
 }
 
 .app-layout__navigation li:hover {

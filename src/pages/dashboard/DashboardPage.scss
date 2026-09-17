@@ -87,4 +87,20 @@
 
 	// Radio reutilizable.
 	border-radius: var(--radius-lg);
+
+	// Utilizamos Grid para crear una composición adaptable.
+	display: grid;
+
+	// Dos columnas cuando existe espacio suficiente.
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+
+	// Separación consistente.
+	gap: var(--spacing-lg);
+}
+
+// En pantallas pequeñas utilizamos una sola columna.
+@media (max-width: 968px) {
+	.dashboard-page__content {
+		grid-template-columns: 1fr;
+	}
 }
