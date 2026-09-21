@@ -8,10 +8,24 @@
 
 import { NavLink, Outlet } from 'react-router';
 
+// Hooks tipados para acceder al estado global
+// y ejecutar actions de Redux.
+import { useAppDispatch, useAppSelector } from '../../app/store/hooks';
+
+// Action que permite alternar el tema.
+import { toggleTheme } from '../../features/preferences/preferencesSlice';
+
 import './AppLayout.scss';
+import { useEffect } from 'react';
 
 // Layout principal de la aplicación.
 function AppLayout() {
+	const dispatch = useAppDispatch();
+	const theme = useAppSelector((state) => state.preferences.theme);
+
+	useEffect(() => {
+		document.documentElement.dataset.theme = theme;
+	}, [theme]);
 	return (
 		<div className="app-layout">
 			{/* Cabecera global de Chronos. */}
@@ -26,6 +40,15 @@ function AppLayout() {
 					{/* Buscador provisional.
               La funcionalidad llegará posteriormente. */}
 					<NavLink to="/search">Search</NavLink>
+
+					{/* Muestra el tema actual y permite alternarlo. */}
+					<button
+						type="button"
+						onClick={() => dispatch(toggleTheme())}
+						aria-label="Toggle aplicaction theme"
+					>
+						Theme: {theme}
+					</button>
 
 					{/* Acceso provisional al perfil. */}
 					<button type="button" aria-label="Open profile">

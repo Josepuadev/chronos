@@ -1,27 +1,87 @@
-// Colores base de Chronos
+// Colores base de Chronos.
+//
+// Los componentes no utilizarán estos valores directamente.
+// Consumirán variables CSS como:
+// var(--color-background)
+// var(--color-text-primary)
+//
+// Esto permite cambiar el tema completo desde un único lugar.
 
-/*
- No utilizaremos valores directamente desde los componentes
- Los componentes consumirán varibales CSS como: 
- var(--color-background)
-
- Esto nos permitirá cambiar el tema completo desde un único lugar.
-
-*/
-
+// Tema oscuro por defecto.
+//
+// Es el tema principal de Chronos.
 :root {
-	--color-background: #0b0d10; // Background principal de la app
-	--color-surface: #12161b; // Superficie para cards y paneles
-	--color-surface-elevated: #2a3037; // Superficie ligeramente más elevada
-	--color-border: #29313a; // Bordes y separadores.
-	--color-text-primary: #f2f4f5; // Texto principal.
-	--color-text-secondary: #a8b0b8; // Texto secundario.
-	--color-text-muted: #737d87; // Texto con menor relevancia visual.
-	--color-primary: #c9a66b; // Color principal de interacción.
-	--color-primary-hover: #d8b982; // Variante para hovers o estados seleccionados
+	// Background principal de la aplicación.
+	--color-background: #0b0d10;
 
-	// estados semánticos
+	// Superficie utilizada para cards y paneles.
+	--color-surface: #12161b;
+
+	// Superficie ligeramente más elevada.
+	--color-surface-elevated: #181e25;
+
+	// Bordes y separadores.
+	--color-border: #29313a;
+
+	// Texto principal.
+	--color-text-primary: #f2f4f5;
+
+	// Texto secundario.
+	--color-text-secondary: #a8b0b8;
+
+	// Texto con menor relevancia visual.
+	--color-text-muted: #737d87;
+
+	// Color principal de interacción.
+	--color-primary: #c9a66b;
+
+	// Variante del color principal para estados hover
+	// y elementos seleccionados.
+	--color-primary-hover: #d8b982;
+
+	// Estados semánticos.
 	--color-success: #5dbb8a;
 	--color-warning: #d6a85c;
 	--color-error: #d96c6c;
+}
+
+// Tema claro.
+//
+// No duplicamos estilos de componentes.
+// Solamente modificamos los tokens.
+//
+// Los componentes continúan utilizando exactamente
+// las mismas variables CSS.
+:root[data-theme='light'] {
+	// Background principal.
+	--color-background: #f4f1ea;
+
+	// Superficie principal.
+	--color-surface: #ffffff;
+
+	// Superficie ligeramente elevada.
+	--color-surface-elevated: #ebe7de;
+
+	// Bordes y separadores.
+	--color-border: #d5cfc3;
+
+	// Texto principal.
+	--color-text-primary: #1c2024;
+
+	// Texto secundario.
+	--color-text-secondary: #59616a;
+
+	// Texto con menor relevancia visual.
+	--color-text-muted: #7b8289;
+
+	// Conservamos el color histórico de Chronos.
+	--color-primary: #9b7539;
+
+	// Variante hover.
+	--color-primary-hover: #7f5f2c;
+
+	// Estados semánticos.
+	--color-success: #39845e;
+	--color-warning: #a9782d;
+	--color-error: #b94c4c;
 }
