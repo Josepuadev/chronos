@@ -16,6 +16,8 @@
 	--transition-fast: 120ms ease;
 	--transition-normal: 200ms ease;
 	--transition-slow: 300ms ease;
+	// Duración específica para cambios globales de tema.
+	--transition-theme:800ms ease;
 
 	// Contenedor principal de la aplicación.
 	--container-max-width: 1440px;

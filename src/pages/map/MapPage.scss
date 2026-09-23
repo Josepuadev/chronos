@@ -1,0 +1,71 @@
+// Estilos provisionales del mapa histórico.
+//
+// Más adelante esta superficie será sustituida por
+// una implementación real de mapas.
+
+.map-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+.map-page__header {
+  max-width: 760px;
+}
+
+.map-page__eyebrow {
+  margin: 0 0 var(--spacing-sm);
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+}
+
+.map-page__header h1 {
+  margin: 0 0 var(--spacing-md);
+  font-size: var(--font-size-3xl);
+  line-height: var(--line-height-tight);
+}
+
+.map-page__header p {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+// Muestra el contexto temporal actual.
+.map-page__context {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-md);
+  width: fit-content;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.map-page__context span {
+  color: var(--color-text-muted);
+}
+
+.map-page__context strong {
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+}
+
+// Superficie provisional que posteriormente
+// contendrá el mapa histórico real.
+.map-page__canvas {
+  display: grid;
+  min-height: 500px;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(
+      circle at center,
+      var(--color-surface-elevated),
+      var(--color-background)
+    );
+  color: var(--color-text-muted);
+}

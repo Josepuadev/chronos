@@ -6,6 +6,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import preferencesReducer from '../../features/preferences/preferencesSlice';
+import timelineReducer from '../../features/timeline/timelineSlice';
 
 // Creamos el Redux Store.
 export const store = configureStore({
@@ -13,6 +14,8 @@ export const store = configureStore({
 	reducer: {
 		// Estado relacionado con las preferencias.
 		preferences: preferencesReducer,
+		// Estado de interacción de Timeline.
+    	timeline: timelineReducer,
 	},
 });
 

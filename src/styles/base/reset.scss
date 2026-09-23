@@ -54,3 +54,29 @@ svg {
 a {
 	color: inherit;
 }
+
+// Transición global de los principales elementos visuales.
+//
+// Esto permite que el cambio entre temas no sea instantáneo.
+body,
+button,
+a,
+input,
+textarea,
+select {
+  transition:
+    background-color var(--transition-theme),
+    color var(--transition-theme),
+    border-color var(--transition-theme);
+}
+
+// Los usuarios que prefieren reducir el movimiento
+// no recibirán la transición del cambio de tema.
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

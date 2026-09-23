@@ -4,6 +4,7 @@
 // en lugar de definir estilos y comportamientos desde cero.
 
 import Button from '../../components/ui/button/Button';
+import { NavLink } from 'react-router';
 import Card from '../../components/ui/card/Card';
 import IconButton from '../../components/ui/icon-button/IconButton';
 
@@ -24,7 +25,9 @@ function DashboardPage() {
 				</p>
 
 				{/* Ejemplo de utilización del Button reutilizable. */}
-				<Button>Explore timeline</Button>
+				<Button>
+					<NavLink to="/timeline">Timeline</NavLink>
+				</Button>
 			</header>
 
 			{/* Contenido provisional del dashboard. */}
@@ -49,7 +52,10 @@ function DashboardPage() {
 				{/* Ejemplo del IconButton. */}
 				<IconButton type="button" aria-label="Open dashboard options" icon="⋮" />
 			</div>
+
+			<p>D3 ROMAN la xupa</p>
 		</section>
+		
 	);
 }
 

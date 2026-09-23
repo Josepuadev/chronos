@@ -1,0 +1,163 @@
+// Estilos de la página Timeline.
+//
+// Esta capa se ocupa exclusivamente de la composición
+// visual de la página.
+// El estado continúa perteneciendo a Redux.
+
+.timeline-page {
+  // Espaciado vertical entre las diferentes secciones.
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+// Cabecera de la Timeline.
+.timeline-page__header {
+  max-width: 760px;
+}
+
+// Pequeño identificador visual de la sección.
+.timeline-page__eyebrow {
+  margin: 0 0 var(--spacing-sm);
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+}
+
+// Título principal.
+.timeline-page__header h1 {
+  margin: 0 0 var(--spacing-md);
+  font-size: var(--font-size-3xl);
+  line-height: var(--line-height-tight);
+}
+
+// Descripción.
+.timeline-page__header p:last-child {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+// Panel que muestra el año seleccionado.
+.timeline-page__selected {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  width: fit-content;
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+// Texto secundario del panel.
+.timeline-page__selected span {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+// Año principal.
+.timeline-page__selected strong {
+  color: var(--color-primary);
+  font-size: var(--font-size-2xl);
+}
+
+// Contenedor horizontal de la Timeline.
+.timeline-page__track {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  align-items: start;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+// Cada punto temporal es realmente un botón.
+//
+// Esto nos da interacción de teclado de forma natural.
+.timeline-page__year {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  min-width: 0;
+  padding: var(--spacing-sm);
+  border: 0;
+  background: transparent;
+  color: var(--color-text-secondary);
+}
+
+// Línea que conecta visualmente los puntos.
+.timeline-page__year::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--spacing-xl) / 2);
+  right: 50%;
+  left: -50%;
+  height: 1px;
+  background: var(--color-border);
+}
+
+// Eliminamos la línea antes del primer elemento.
+.timeline-page__year:first-child::before {
+  display: none;
+}
+
+// Punto de la Timeline.
+.timeline-page__marker {
+  position: relative;
+  z-index: 1;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-background);
+  transition:
+    background-color var(--transition-theme),
+    border-color var(--transition-theme),
+    transform var(--transition-fast);
+}
+
+// Año.
+.timeline-page__year-label {
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+}
+
+// Estado hover.
+.timeline-page__year:hover {
+  color: var(--color-text-primary);
+}
+
+// Estado seleccionado.
+.timeline-page__year--selected {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+// Punto seleccionado.
+.timeline-page__year--selected .timeline-page__marker {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  transform: scale(1.25);
+}
+
+// Focus accesible.
+.timeline-page__year:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+// Adaptación para pantallas pequeñas.
+@media (max-width: 768px) {
+  .timeline-page__track {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    row-gap: var(--spacing-lg);
+  }
+
+  .timeline-page__header h1 {
+    font-size: var(--font-size-2xl);
+  }
+}
