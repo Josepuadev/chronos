@@ -1,0 +1,62 @@
+// Viñetas relacionadas con el momento histórico seleccionado.
+
+.historical-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.historical-highlights header p {
+  margin: 0 0 var(--spacing-xs);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.historical-highlights header h2 {
+  margin: 0;
+  font-size: var(--font-size-2xl);
+}
+
+.historical-highlights__grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(240px, 1fr)
+  );
+  gap: var(--spacing-lg);
+}
+
+.historical-highlight {
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  transition:
+    background-color var(--transition-theme),
+    border-color var(--transition-theme),
+    color var(--transition-theme);
+}
+
+.historical-highlight__type {
+  display: inline-block;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.historical-highlight h3 {
+  margin: 0 0 var(--spacing-sm);
+}
+
+.historical-highlight p {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.historical-highlights__empty {
+  margin: 0;
+  color: var(--color-text-muted);
+}

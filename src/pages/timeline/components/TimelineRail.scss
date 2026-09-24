@@ -1,0 +1,126 @@
+.timeline-rail {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+// Indicador del año seleccionado.
+.timeline-rail__current {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-md);
+}
+
+.timeline-rail__current span {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.timeline-rail__current strong {
+  color: var(--color-primary);
+  font-size: var(--font-size-2xl);
+}
+
+// Zona visible de la Timeline.
+.timeline-rail__viewport {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: var(--spacing-xl) 50%;
+  cursor: grab;
+
+  // Evitamos que el navegador intente realizar
+  // gestos táctiles de scroll vertical mientras
+  // estamos interactuando horizontalmente.
+  touch-action: pan-y;
+
+  // Ocultamos visualmente la scrollbar.
+  scrollbar-width: none;
+}
+
+// Oculta la scrollbar en navegadores WebKit.
+.timeline-rail__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+// Cursor mientras arrastramos.
+.timeline-rail--dragging {
+  cursor: grabbing;
+}
+
+// Línea completa de años.
+.timeline-rail__track {
+  display: flex;
+  align-items: flex-start;
+  min-width: max-content;
+}
+
+// Cada año ocupa un espacio constante.
+.timeline-rail__year {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 40px;
+  min-width: 40px;
+  height: 60px;
+}
+
+// Tick pequeño.
+.timeline-rail__tick {
+  display: block;
+  width: 1px;
+  height: 12px;
+  background: var(--color-border);
+  transition:
+    background-color var(--transition-theme),
+    height var(--transition-fast);
+}
+
+// Los años importantes tienen ticks mayores.
+.timeline-rail__year--major .timeline-rail__tick {
+  width: 2px;
+  height: 22px;
+  background: var(--color-text-secondary);
+}
+
+// Etiqueta de los años importantes.
+.timeline-rail__label {
+  position: absolute;
+  top: 30px;
+  transform: translateX(-50%);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+}
+
+// Indicador central.
+//
+// Este elemento permanece quieto mientras la Timeline
+// se mueve debajo de él.
+.timeline-rail__center-marker {
+  position: absolute;
+  z-index: 2;
+  top: 82px;
+  left: 50%;
+  width: 2px;
+  height: 32px;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+  pointer-events: none;
+}
+
+// Focus accesible para navegación mediante teclado.
+.timeline-rail__viewport:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+// En dispositivos pequeños reducimos el espacio
+// lateral necesario para centrar el elemento.
+@media (max-width: 768px) {
+  .timeline-rail__viewport {
+    padding-right: 50%;
+    padding-left: 50%;
+  }
+}
